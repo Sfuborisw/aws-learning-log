@@ -1,0 +1,22 @@
+# Secrets — never commit these
+.env
+.env.*
+*.pem
+*.key
+credentials
+config
+
+# AWS CLI / SDK local config
+.aws/
+
+# Terraform (if used later)
+*.tfstate
+*.tfstate.*
+.terraform/
+
+# OS / editor
+.DS_Store
+.vscode/
+__pycache__/
+*.pyc
+node_modules/
