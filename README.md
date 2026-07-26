@@ -26,11 +26,13 @@ See `SPRINT-PLAN.md` for the day-by-day breakdown.
 - [x] IAM — `boris-dev` user created (console + CLI access, MFA); root locked down and set aside
 - [x] S3 — hosting the React static build (private bucket, `hypothesis-log-frontend-awslearning`)
 - [x] CloudFront — CDN + HTTPS in front of S3 via OAC (`d2remctp8dpvdy.cloudfront.net`)
-- [ ] EC2 — backend running via docker-compose (first pass) — **Phase 2, in progress**
+- [x] EC2 — FastAPI in Docker via docker-compose, port 8001 (t3.micro, Ubuntu 24.04)
 - [ ] ECS Fargate — same backend, containerized properly (second pass)
-- [ ] RDS (PostgreSQL) — migrate DB off Supabase, learn VPC/security groups — **Phase 2, in progress**
+- [x] RDS (PostgreSQL 17) — migrated off Supabase, private (no public access), SG-to-SG access from EC2
 
-**Phase 1 complete** — frontend live on private S3 + CloudFront (OAC). Full write-up: [`architecture/phase-1-case-study.md`](architecture/phase-1-case-study.md).
+**Phase 1 complete** — frontend on private S3 + CloudFront (OAC). Write-up: [`architecture/phase-1-case-study.md`](architecture/phase-1-case-study.md).
+
+**Phase 2 complete** — backend containerized on EC2 + private RDS PostgreSQL, migrated from Supabase. Write-up: [`architecture/phase-2-case-study.md`](architecture/phase-2-case-study.md). Deploy artifacts in [`infra/backend-deploy/`](infra/backend-deploy/).
 
 ### Tier 2 — once Tier 1 is live
 - [ ] CloudWatch — logs + billing alarms

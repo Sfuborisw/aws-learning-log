@@ -1,0 +1,12 @@
+# Runs the FastAPI backend container on the EC2 instance.
+# The container reads DATABASE_URL and ALLOWED_ORIGINS from .env (not committed).
+# DATABASE_URL points at the private RDS endpoint; the EC2 instance reaches it
+# because the RDS security group allows inbound 5432 from the EC2 security group.
+services:
+  backend:
+    build: .
+    ports:
+      - "8001:8001"
+    env_file:
+      - .env
+    restart: unless-stopped

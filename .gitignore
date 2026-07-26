@@ -20,5 +20,8 @@ config
 __pycache__/
 *.pyc
 node_modules/
-awscliv2.zip
-aws/
+
+# Backend deploy secrets (live only on the EC2 instance)
+infra/backend-deploy/.env
+!.env.example
+!infra/backend-deploy/.env.example
